@@ -13,7 +13,7 @@
     "tachyons": "^4.12.0",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://keithvsr.github.io/robofriends",
+  "homepage": "https://keithvsr.github.io/robofriends/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
