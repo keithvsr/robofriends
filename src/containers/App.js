@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import hashedName from "../utils/hash";
 
 import CardList from "../components/CardList";
 import Scroll from "../components/Scroll";
@@ -12,7 +13,14 @@ const App = () => {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users/")
       .then((res) => res.json())
-      .then((data) => setRobots(data));
+      .then((data) => {
+        setRobots(
+          data.map((bot) => ({
+            ...bot,
+            hashedName: hashedName(`${bot.id}-${bot.name}-${bot.email}`),
+          })),
+        );
+      });
   }, []);
 
   const handleSearchChange = ({ target }) => {
